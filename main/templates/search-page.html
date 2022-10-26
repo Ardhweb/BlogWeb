@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Search{% endblock %}
+{% block content %}
+{% if searched %}
+<h3>You Searched for:{{searched}} </span> &#x26A1;<span></h3>
+
+{% for search in search_results  %}
+<div class="m-3 p-1 d-flex shadow bg-body">
+<a style="text-decoration:none; color:black;" class="" 
+href="{{search.get_absolute_url }}">
+
+<div class="d-flex flex-inline">
+<img class="img-top w-25" src="{{search.image.url}}"/>
+<div class="m-1"><h5 class="">{{search.title}}</h5>
+</br>{{search.body|truncatewords:15|linebreaks}}</div>
+</div> 
+ </a>
+</div>
+{% endfor %}
+  
+<div></div></div></div><!--Do not remove this three div its set footer good at search page-->
+{% else  %}
+<h3>OOps There are no search query!! 🧐<h3>
+{% endif %}
+{% endblock %}

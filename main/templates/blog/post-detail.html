@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ post.title }}{% endblock %}
+{% block content %}
+<div class="p-1 container">
+  <div>
+    <img src="{{post.image.url}}"  class=" detail-img-post mt-3 " alt="...">
+  </div>
+ <h1>{{ post.title }}</h1>
+ <p class="date fwt-bolder bg-grey" style="font-weight:500;color:grey;display:inline-block;">
+     Published <span class="dark" style="font-weight:bolder; color:black;">{{ post.publish }}</span> by 
+     <span class="dark" style="font-weight:bolder; color:black;">{{ post.author }}</span>
+ </p>
+ {{ post.body|linebreaks }}
+
+</div>
+ <a class="btn btn-primary text-white rounded-pill m-2" href="{% url 'main:home' %}">Home</a>
+{% endblock %}
+
+
+
+

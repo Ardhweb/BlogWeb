@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "css/boot-tweak.css" %}" >
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}" >  
+     
+     <style>
+        .offcanvas{
+            background-color:black;
+        }
+        .text-effect{
+            color:aliceblue;
+        }
+        .text-effect:hover{
+            color:rgb(255,215,0);
+            font-weight:bolder;
+        }
+
+         
+.detail-img-post{
+    width:550px;
+    height:350px;
+    border:1px solid aliceblue;
+  
+}
+
+@media only screen and (max-width: 400px) {
+    
+     .detail-img-post{
+        width:250px;
+        height:180px;
+        
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    
+    .detail-img-post{
+       width:min-content;
+       height:180px;
+       
+   }
+}
+
+
+
+     </style>
+  
+    <title>Bootstrap demo</title>
+  
+</head>
+<body>
+    {% include 'navbar.html' %}
+    {% block content %}
+
+
+   
+    {% endblock content %}
+    {% include 'footer.html' %}
+    
+    <!--JS-->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script> 
+    <script src="https://unpkg.com/htmx.org@1.8.2"></script>
+     <script src="{% static 'js/myscript.js' %}"></script>  
+
+    <script>
+
+
+
+{% comment %} 
+const h2 = document.getElementById("demo2").innerHTML;
+
+let addto = document.getElementById("p")[1];
+let firsth2 = addto;
+h2.insertAdjacentHTML("afterend", firsth2);
+console.log(addto)
+
+const element = document.getElementById("demo1");
+element.outerHTML = document.getElementById("p")[1]; {% endcomment %}
+
+{% comment %} 
+var xmlString = "<div id='foo'><a href='#'>Link</a><span></span></div>";
+var doc = new DOMParser().parseFromString(xmlString, "text/xml");
+
+let gt = document.getElementById("demo3").innerHTML = doc.firstChild.innerHTML;
+
+
+let addto = document.getElementsByTagName("p");
+let contentVlaue = addto[1];
+console.log(contentVlaue.innerText)
+var htnlString = contentVlaue.innerText;
+var doc = new DOMParser().parseFromString(htnlString, "text/html");
+
+var doc2 = new DOMParser().parseFromString(contentVlaue.innerText, "text/html");
+
+let ft = addto[1].innerHTML = doc2.firstChild.innerHTML;
+
+
+
+console.log(doc.firstChild.innerHTML); // => <a href="#">Link...
+console.log(doc.firstChild.firstChild.innerHTML); // => Link {% endcomment %}
+
+    </script>
+</body>
+</html>

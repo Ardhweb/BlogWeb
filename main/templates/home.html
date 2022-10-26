@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 >Home</h1>
+
+<a href="{% url 'main:post-list' %}">All post's</a>
+<div class="bg-dark border-left-0 border-bottom  rounded-right shadow" style="color:rgb(255, 142, 67);"><p style="font-weight:bold;" class=" text-white fs-3 fwt-bolder p-2 m-1">Latest Post</p>
+  <span class="border-bottom border-5" style="color:rgb(255, 142, 67); border-radius:12px;"></span>
+
+</div>
+
+<div class="container">
+    <div class="card-group d-flex container flex-wrap-reverse justify-content-around">
+        {% for post in post  %}
+        <div class="card  ms-1 gap-2 m-1 border border-0 bg-success">
+          <a style="text-decoration:auto;" href="{{ post.get_absolute_url }}">
+          <img src="{{post.image.url}}" class=" bg-dark card-img-top" alt="...">
+          <div class="card-body p-2 ">
+            <h5 class="card-title">{{post.title}}</h5>
+            <span class="card-text">{{post.body|truncatewords:10|linebreaks}}</span>
+       <!--p class="card-text"><small class="text-light">Last updated 3 mins ago</small></p-->
+             <a class=" float-end btn btn-primary btn-sm border border-0 " style="background-color:orange" href="{{ post.get_absolute_url }}" role="button">Read more.</a>
+          </div>
+        </a>
+        </div>
+        {% endfor %}
+        
+       
+        
+      </div>
+          
+</div>
+
+{% endblock content %}
+
+

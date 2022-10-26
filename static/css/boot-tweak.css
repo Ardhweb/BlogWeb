@@ -1,0 +1,74 @@
+.card{
+    border-radius:0px;
+    
+ 
+ }
+ .card-img-top{
+width:100%;
+height:auto;
+}
+/* .card-text::first-line{
+color:white;
+font-size:25px;
+font-weight:bolder;
+}*/
+
+.card-title{
+    color:black;
+}
+.card-title::first-letter{
+    /* color:rgb(119, 183, 240); */
+    font-size:35px;
+}
+.card-text::content{
+    color:rgb(119, 118, 110);
+
+}
+.card-text> h1:first-line{
+    color:rgb(255, 142, 67);
+    font-size:35px;
+    font-weight: bold;
+}
+
+.card-body{
+    background-color: aliceblue;
+}
+
+.detail-img-post{
+    width:550px;
+    height:350px;
+    border:1px solid aliceblue;
+  
+}
+
+
+
+@media only screen and (max-width: 400px) {
+.card{
+ margin-bottom:4px;
+ font-size:12px;
+ height:50%;
+
+ }
+ .detail-img-post{
+    width:250px;
+    height:180px;
+  
+
+    
+}
+
+}
+
+
+         
+
+
+@media only screen and (max-width: 700px) {
+    
+    .detail-img-post{
+       width:min-content;
+       height:180px;
+       
+   }
+}

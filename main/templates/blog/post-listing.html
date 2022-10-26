@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<h1>All Post's<h1>
+
+{% block title %}My Blog{% endblock %}
+{% block content %}
+ <h1 class=" text-light p-3 w-25 text-left m-3 rounded-pill bg-primary">My Blog</h1>
+ {% comment %} {% for post_list in post_list %}
+ <h2>
+ <a href="{{ post.get_absolute_url }}">
+ {{ post_list.title }}
+ </a>
+ </h2>
+ <p class="date">
+ Published {{ post_list.publish }} by {{ post_list.author }}
+ </p>
+ {{ post_list.body|truncatewords:30|linebreaks }}
+ {% endfor %} {% endcomment %}
+<div class="container-fluid">
+   
+    {% comment %} <iframe src="{% url 'main:post-list' %}" style="height:200px;width:300px" title="Iframe Example">
+
+
+        
+    {% for post in posts_obj %}
+    <h2>
+    <a href="{{ post.get_absolute_url }}">
+    {{ post.title }}
+    </a>
+    </h2>
+    <p class="date">
+    Published {{ post.publish }} by {{ post.author }}
+    </p>
+   {% comment %} <div style="color:red;"> {{ post.body|truncatewords:30|linebreaks|safe|escapejs}}</div> {% endcomment %}
+   {% comment %} <div style="color:red;"> {{ post.body|truncatewords:30|linebreaks|force_escape}}</div> 
+   
+   
+   
+   <div style="color:red;"> {{ post.body|truncatewords:30|linebreaks|json_script:"my-id"}}</div> 
+
+   <div id="demo"></div>
+   <div style="color:red;"> {{ post.body|truncatewords:30|linebreaks}}</div>
+    
+   {% endfor %}
+    </iframe> {% endcomment %}
+
+
+
+        
+    {% for post in posts_obj %}
+    <h2>
+    <a href="{{ post.get_absolute_url }}">
+    {{ post.title }}
+    </a>
+    </h2>
+    <p class="date">
+    Published {{ post.publish }} by {{ post.author }}
+    </p>
+   {% comment %} <div style="color:red;"> {{ post.body|truncatewords:30|linebreaks|safe|escapejs}}</div> {% endcomment %}
+   {% comment %} <div style="color:red;"> {{ post.body|truncatewords:30|linebreaks|force_escape}}</div> {% endcomment %}
+   
+   
+   
+   {% comment %} <div style="color:red;"> {{ post.body|truncatewords:30|linebreaks|json_script:"my-id"}}</div> {% endcomment %}
+
+   <div id="demo"></div>
+   <div style="color:red;"> {{ post.body|truncatewords:30|linebreaks}}</div>
+   
+   
+   <div id="demo2"></div>
+   
+   <div id="demo3"></div>
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   {% endfor %}
+
+    
+
+{% include "blog/pagination.html" with page_obj=posts_obj %}
+</div>
+
+
+<a class="btn btn-primary text-white rounded-pill m-2" href="{% url 'main:home' %}">Home</a>
+{% endblock  %}
+
+
+
